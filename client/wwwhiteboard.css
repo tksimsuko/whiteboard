@@ -1,0 +1,195 @@
+/****** base *****/
+body{
+	margin:0;
+	padding:0;
+}
+a{
+	cursor:pointer;
+}
+
+/****** layout *****/
+.content{
+	margin:0 auto;
+	max-width:800px;
+}
+
+/****** widget *****/
+/* page header */
+.header-info div {
+	float:right;
+	margin-right:20px;
+	line-height:40px;
+	font-size:16px;
+}
+.header-info .header-logout{
+	cursor:pointer;
+}
+.header-username .username{
+	color:white;
+}
+
+/* content */
+section{
+	margin:10px;
+}
+
+/* modal */
+#createBoardModal input,
+#createBoardModal textarea{
+	width:98%;
+}
+
+/* board list */
+.board-list{
+	list-style:none;
+	margin-left:0;
+}
+.board-list .board{
+	cursor:pointer;
+}
+.board:hover{
+	background: #EEE;
+}
+.board-wrap{
+	position:relative;
+	margin-bottom:20px;
+	padding:5px 10px 5px 10px;
+	border-top: 10px solid;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+}
+.search-board{
+	width:150px;
+}
+.board-list-content{
+	margin-bottom:10px;
+}
+.board-list-footer .create-date,
+.board-list-footer .author{
+	font-size:12px;
+	color:#999;
+	padding: 5px;
+	margin-right: 10px;
+	background: #EEE;
+	border: 1px solid #CCC;
+}
+.board-title{
+	word-wrap:break-word;
+	overflow:hidden;
+}
+.board-description{
+	white-space:pre-wrap;
+	word-wrap:break-word;
+}
+.delete-board{
+	position:absolute;
+	bottom: 5px;
+	right: 5px;
+}
+.board-comment-count{
+	float:right;
+}
+.board-comment-count-label{
+	font-size:12px;	
+	color:#999;
+}
+
+/* board section */
+.board-section .board-header{
+	border-bottom: 1px solid #EEE;
+	word-wrap:break-word;
+}
+.board-section .board-header h1{
+	font-size:2em;
+}
+.board-section .board-header p{
+	margin:10px 0;
+	font-size:1.2em;
+	color:#999;
+}
+
+/* comment page */
+.board-comment-action{
+	position:relative;
+}
+.sort-comment{
+	float:right;
+}
+.comment-list{
+	list-style:none;
+	margin-top:10px;
+	margin-left:10px;
+}
+/* comment */
+.comment-item{
+	margin:10px 0;
+	padding: 5px;
+	border-top:1px dotted;
+}
+/*mark*/
+.comment-header{
+	padding: 5px 0;
+}
+.comment-header .comment-number{
+	margin-right:10px;
+	font-size:1.3em;
+	font-weight:bold;
+	color:#999;
+}
+.comment-header .username{
+	font-size:12px;
+	color:black;
+
+	/*mark*/
+/*	padding: 5px;
+	background: gold;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;*/
+}
+.comment-header .comment-create-date{
+	float:right;
+	font-size:12px;
+	color:#999;
+}
+.comment-content{
+	position:relative;
+	margin:10px 0;
+}
+.comment-content div{
+	font-size:1.2em;
+	word-wrap:break-word;
+	margin:5px 0;
+}
+.comment{
+	white-space: pre-wrap;
+}
+.delete-comment{
+	position:absolute;
+	right:0;
+	bottom:-5px;
+}
+
+/* comment form */
+.comment-form{
+	position:fixed;
+	left:0;
+	bottom:-20px;
+	margin:0;
+	padding-bottom:34px;
+
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-o-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	box-sizing:border-box;
+
+	width:100%;
+}
+.comment-textarea{
+	width:98%;
+	resize:none;
+}
+.footer-form{
+	height:140px;
+}

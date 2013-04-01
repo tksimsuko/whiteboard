@@ -1,0 +1,165 @@
+<!-- html
+================================================== -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0" />
+  <title>whiteboard</title>
+</head>
+<body>
+<!-- header -->
+{{> header}}
+<!-- content -->
+<div class="content"></div>
+</body>
+
+
+<!-- template
+================================================== -->
+<!-- header -->
+<template name="header">
+  <div id="header" class="navbar">
+   <div class="navbar-inner">
+     <div class="container">
+       <a class="brand home-link">whiteboard</a>
+       <div class="header-info hide">
+          <div class="header-logout"><a>logout</a></div>
+          <div class="header-username">login as <span class="username"></span></div>
+       </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- login -->
+<template name="userLogin">
+  <section>
+    <form class="login-user-form well form-search">
+      <fieldset>
+        <input class="input-username" type="text" placeholder="User Name">
+        <button type="button" class="login-btn btn">login</button>
+      </fieldset>
+    </form>
+    <h1 class="login-username"></h1>
+  </section>
+</template>
+
+<!-- board list section -->
+<template name="boardListSection">
+  <section class="board-list-section">
+    <div class="board-action clearfix">
+      <a type="button" class="open-create-board-dialog btn btn-primary" >+ board</a>
+      <div class="pull-right ">
+        <i class="icon-search"></i>
+        <input class="search-board" type="text" placeholder="search board">
+      </div>
+    </div>
+    <hr/>
+    <ul class="board-list">
+        {{#each boardList}}
+          {{> board}}
+        {{/each}}
+    </ul>
+  </section>
+  <!-- create board modal -->
+  <div class="modal hide" id="createBoardModal">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3>Create board</h3>
+    </div>
+    <div class="modal-body">
+      <fieldset>
+        <div class="control-group">
+          <label class="control-label" for="create-board-title">Title</label>
+          <div class="controls">
+            <input tabindex="1" type="text" class="create-board-title input-xlarge" id="create-board-title">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="textarea">Description</label>
+          <div class="controls">
+            <textarea tabindex="2" class="create-board-description input-xlarge" id="textarea" rows="3"></textarea>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="modal-footer">
+      <a tabindex="3" class="btn btn-primary create-board">create</a>
+      <a tabindex="4" href="javascript:void(0);" class="btn close-board-dialog" data-dismiss="modal">cancel</a>
+    </div>
+  </div>
+</template>
+
+<!-- board -->
+<template name="board">
+  <li class="board">
+    <div class="board-wrap">
+        <span class="board-id hide">{{_id}}</span>
+        <span class="username hide">{{username}}</span>
+        <div class="board-list-content">
+          <h3 class="board-title clearfix">
+            {{title}}
+            <span class="board-comment-count">
+              <span class="badge">{{commentCount}}</span>
+              <span class="board-comment-count-label">comment</span>
+            </span>
+          </h3>
+          <span class="comment-count"></span>
+        </div>
+        <p class="board-list-footer clearfix">
+          <span class="author">Author : {{username}}</span>
+          <span class="create-date">Created  {{displayCreateDate}}</span>
+        </p>
+        <button class="delete-board btn btn-mini btn-danger hide pull-right">delete</button>
+    </div>
+  </li>
+</template>
+  
+<!-- board section -->
+<template name="boardSection">
+  <!-- board -->
+  <section class="board-section">
+    {{#each board}}
+      <div class="board-header">
+        <span class="board-id hide">{{_id}}</span>
+        <h1 class="board-title">{{title}}</h1>
+        <p class="board-description">{{description}}</p>
+      </div>
+    {{/each}}
+    <div class="board-comment-action clearfix">
+        <a class="btn sort-comment"><i class="icon-resize-vertical"></i>sort</a>
+    </div>
+    <ul class="comment-list">
+      {{#each commentList}}
+        {{> comment}}
+      {{/each}}
+    </ul>
+  </section>
+  <!-- footer -->
+  <div class="footer">{{> commentForm}}</div>
+</template>
+
+<!-- comment form -->
+<template name="commentForm">
+  <div class="footer-form">
+    <div class="comment-form well">
+        <textarea tabindex="1" class="comment-textarea" rows="2"></textarea>
+        <a  tabindex="2" class="create-comment btn btn-primary pull-right" >+ add</a>
+      </div>
+    </div>
+</template>
+
+<!-- comment -->
+<template name="comment">
+  <li class="comment-item comment-{{_id}} clearfix">
+    <span class="comment-id hide">{{_id}}</span>
+    <div class="comment-header clearfix">
+      <span class="comment-number">{{number}}.</span>
+      <span class="username">{{username}}</span>
+      <span class="comment-create-date">{{displayCreateDate}}</span>
+    </div>
+    <div class="comment-content">
+      <button class="btn btn-mini btn-danger delete-comment hide">delete</button>
+      <div class="comment">{{content}}</div>
+    </div>
+  </li>
+</template>

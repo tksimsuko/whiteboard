@@ -215,6 +215,14 @@ Template.comment.events({
     Board.update({_id:boardId}, {$inc:{commentCount:-1}});
   }
 });
+Template.comment.rendered = function(){
+  var node = this.firstNode;
+  if(node){
+    var $cmt = $(node);
+    $cmt.hide();
+    $cmt.fadeIn();
+  }
+};
 
 ///// implement /////
 ////// URL control /////

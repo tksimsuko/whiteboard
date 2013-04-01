@@ -54,10 +54,10 @@ section{
 	position:relative;
 	margin-bottom:20px;
 	padding:5px 10px 5px 10px;
-	border-top: 10px solid;
-	border-left: 1px solid;
-	border-right: 1px solid;
-	border-bottom: 1px solid;
+	border-top: 5px solid #000;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
 }
 .search-board{
 	width:150px;
